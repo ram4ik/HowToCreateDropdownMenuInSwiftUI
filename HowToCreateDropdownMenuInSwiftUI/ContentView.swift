@@ -8,9 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State private var choice = "Options"
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Drop Down Menu")
+                .font(.largeTitle)
+            Menu {
+                Button {
+                    choice = "First Choice"
+                } label: {
+                    Text("First Option")
+                }
+                Button {
+                    choice = "Second Choice"
+                } label: {
+                    Text("Second Option")
+                }
+                Button {
+                    choice = "Third Choice"
+                } label: {
+                    Text("Third Option")
+                }
+            } label: {
+                Label {
+                    Text("\(choice)")
+                } icon: {
+                    Image(systemName: "plus")
+                }
+
+            }
+        }
     }
 }
 
